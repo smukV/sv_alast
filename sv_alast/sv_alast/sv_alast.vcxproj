@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="src\Pair.hpp" />
     <ClInclude Include="src\RedBlackTree.hpp" />
   </ItemGroup>
   <ItemGroup>
