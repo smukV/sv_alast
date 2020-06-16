@@ -16,4 +16,3 @@ namespace sv_alast {
 	void strcpy(char* destStr, const char* srcStr);
 	void strcpy(const char* inStr, const char* outStr, size_t size);
 }
-

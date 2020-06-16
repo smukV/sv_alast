@@ -153,10 +153,10 @@
   <ItemGroup>
     <ClInclude Include="src\Pair.hpp" />
     <ClInclude Include="src\RedBlackTree.hpp" />
-    <ClInclude Include="src\String.h" />
+    <ClInclude Include="src\svString.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\String.cpp" />
+    <ClCompile Include="src\svString.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

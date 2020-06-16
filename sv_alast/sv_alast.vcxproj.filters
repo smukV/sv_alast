@@ -21,12 +21,12 @@
     <ClInclude Include="src\Pair.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\String.h">
+    <ClInclude Include="src\svString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\String.cpp">
+    <ClCompile Include="src\svString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
