@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include <utility>
+#include "Pair.hpp"
 
 namespace sv_alast {
 	template<class Key, class Value>
@@ -12,7 +12,7 @@ namespace sv_alast {
 		};
 		template<class Key, class Value>
 		struct Node {
-			std::pair<Key, Value> *m_data;
+			Pair<Key, Value> *m_data;
 			Color m_color;
 			Node *m_parent, *m_left, *m_right;
 			Node() {
@@ -22,15 +22,15 @@ namespace sv_alast {
 				m_left = nullptr;
 				m_right = nullptr;
 			}
-			Node(const std::pair<Key, Value> data, Node<Key, Value> *parent = nullptr, Color color = BLACK) {
-				m_data = new std::pair<Key, Value>(data);
+			Node(const Pair<Key, Value> data, Node<Key, Value> *parent = nullptr, Color color = BLACK) {
+				m_data = new Pair<Key, Value>(data);
 				m_color = color;
 				m_parent = parent;
 				m_left = nullptr;
 				m_right = nullptr;
 			}
 			Node(const Key key, Value value, Node<Key, Value> *parent = nullptr, Color color = BLACK) {
-				m_data = new std::pair<Key, Value>(key, value);
+				m_data = new Pair<Key, Value>(key, value);
 				m_color = color;
 				m_parent = parent;
 				m_left = nullptr;
@@ -257,7 +257,7 @@ namespace sv_alast {
 			m_nil = new Node<Key, Value>();
 			m_root = m_nil;
 		}
-		RedBlackTree(const std::pair<Key, Value> &data) {
+		RedBlackTree(const Pair<Key, Value> &data) {
 			m_root = new Node<Key, Value>(data);
 			m_nil = new Node<Key, Value>();
 			m_root->m_left = m_nil;
@@ -276,9 +276,9 @@ namespace sv_alast {
 		}
 
 		void Insert(const Key& key, const Value& value) {
-			this->Insert(std::pair<Key, Value>(key, value));
+			this->Insert(Pair<Key, Value>(key, value));
 		}
-		void Insert(const std::pair<Key, Value> &data) {
+		void Insert(const Pair<Key, Value> &data) {
 			if (m_root == m_nil) {
 				m_root = new Node<Key, Value>(data);
 				m_root->m_left = m_nil;
