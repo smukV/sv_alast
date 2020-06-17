@@ -22,6 +22,11 @@ namespace sv_alast{
 		other.m_Data = nullptr;
 	}
 
+	String::~String()
+	{
+		delete[] m_Data;
+	}
+
 	String & String::operator=(const String & other)
 	{
 		if (m_Data != nullptr)
@@ -44,13 +49,14 @@ namespace sv_alast{
 	}
 	String   String::operator+(const String & other) const
 	{
-		size_t res_Size = m_Size + other.m_Size;
-		char* res_Data = new char[res_Size + 1];
+		String res_Str;
+		res_Str.m_Size = m_Size + other.m_Size;
+		res_Str.m_Data = new char[res_Str.m_Size + 1];
 
-		StrCpy(res_Data, this->m_Data);
-		StrCpy(res_Data, other.m_Data, m_Size, other.m_Size);
+		StrCpy(res_Str.m_Data, this->m_Data);
+		StrCpy(res_Str.m_Data, other.m_Data, m_Size, other.m_Size);
 
-		return String(res_Data);
+		return res_Str;
 	}
 	String & String::operator+=(const String & other)
 	{
@@ -91,7 +97,7 @@ namespace sv_alast{
 	{
 		size_t i;
 		int end_Pos = start_Pos + size;
-		for (i = start_Pos; i <= end_Pos; i++)
+		for (i = start_Pos; i < end_Pos; i++)
 			destStr[i] = srcStr[i - start_Pos];
 		destStr[i] = '\0'; 
 	}

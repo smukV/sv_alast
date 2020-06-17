@@ -10,6 +10,7 @@ namespace sv_alast {
 		String(const char* str);
 		String(const String& other);
 		String(String&& other) noexcept;
+		~String();
 
 		String& operator=(const String& other);
 		String& operator=(String&& other);
