@@ -21,6 +21,7 @@ namespace sv_alast{
 		other.m_Size = 0;
 		other.m_Data = nullptr;
 	}
+
 	String& String::operator=(const String & other)
 	{
 		if (m_Data != nullptr)
@@ -30,7 +31,17 @@ namespace sv_alast{
 		StrCpy(m_Data, other.m_Data);
 		return *this;
 	}
+	String & String::operator=(String && other)
+	{
+		if (m_Data != nullptr)
+			delete m_Data;
+		m_Size = other.m_Size;
+		m_Data = other.m_Data;
 
+		other.m_Size = 0;
+		other.m_Data = nullptr;
+		return *this;
+	}
 	String String::operator+(const String & other) const
 	{
 		size_t res_Size = m_Size + other.m_Size;
@@ -41,7 +52,6 @@ namespace sv_alast{
 
 		return String(res_Data);
 	}
-
 	String& String::operator+=(const String & other)
 	{
 		(*this) = (*this) + other;
@@ -52,7 +62,6 @@ namespace sv_alast{
 	{
 		return m_Data;
 	}
-
 	const size_t String::Size() const
 	{
 		return m_Size;

@@ -10,9 +10,12 @@ namespace sv_alast {
 		String(const char* str);
 		String(const String& other);
 		String(String&& other) noexcept;
+
 		String& operator=(const String& other);
+		String& operator=(String&& other);
 		String operator+(const String& other) const;
 		String& operator+=(const String& other);
+
 		const char* Data()const;
 		const size_t Size() const;
 	};
