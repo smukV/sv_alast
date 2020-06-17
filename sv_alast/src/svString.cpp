@@ -22,7 +22,7 @@ namespace sv_alast{
 		other.m_Data = nullptr;
 	}
 
-	String& String::operator=(const String & other)
+	String & String::operator=(const String & other)
 	{
 		if (m_Data != nullptr)
 			delete m_Data;
@@ -42,7 +42,7 @@ namespace sv_alast{
 		other.m_Data = nullptr;
 		return *this;
 	}
-	String String::operator+(const String & other) const
+	String   String::operator+(const String & other) const
 	{
 		size_t res_Size = m_Size + other.m_Size;
 		char* res_Data = new char[res_Size + 1];
@@ -52,7 +52,7 @@ namespace sv_alast{
 
 		return String(res_Data);
 	}
-	String& String::operator+=(const String & other)
+	String & String::operator+=(const String & other)
 	{
 		(*this) = (*this) + other;
 		return *this;
@@ -73,21 +73,21 @@ namespace sv_alast{
 		for (result; str[result] != '\0'; result++);
 		return result;
 	}
-	void StrCpy(char * destStr, const char * srcStr)
+	void   StrCpy(char * destStr, const char * srcStr)
 	{
 		size_t i = 0;
 		for (i; srcStr[i] != '\0'; i++)
 			destStr[i] = srcStr[i];
 		destStr[i] = '\0';
 	}
-	void StrCpy(char * destStr, const char * srcStr, size_t size)
+	void   StrCpy(char * destStr, const char * srcStr, size_t size)
 	{
 		size_t i;
 		for(i = 0; i <= size; i++)
 			destStr[i] = srcStr[i];
 		destStr[i] = '\0';
 	}
-	void StrCpy(char * destStr, const char * srcStr, size_t start_Pos, size_t size)
+	void   StrCpy(char * destStr, const char * srcStr, size_t start_Pos, size_t size)
 	{
 		size_t i;
 		int end_Pos = start_Pos + size;
